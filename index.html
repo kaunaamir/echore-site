@@ -1,0 +1,826 @@
+
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Likely Story — Small Studio Big Ideas | Boutique Digital Atelier</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@400;500;600;700;800;900&amp;family=Syne:wght@700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+
+<script data-purpose="tailwind-config">
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'electric-blue': '#3800ff',
+        'deep-blue': '#2800cf',
+        'neon-purple': '#5214FF',
+        'neon-lime': '#E2FF3B',
+        'bold-red': '#FF001F',
+        'bubble-pink': '#FF65BE',
+        'brand-dark': '#0a0a0c',
+        'brand-yellow': '#FFDE59',
+      },
+      fontFamily: {
+        display: ['Anton', 'Impact', 'Syne', 'sans-serif'],
+        syne: ['Syne', 'sans-serif'],
+        sans: ['Outfit', 'Plus Jakarta Sans', 'sans-serif'],
+        mono: ['Space Grotesk', 'monospace'],
+      }
+    }
+  }
+}
+</script>
+
+<style data-purpose="masterwork-styles">
+@font-face {
+  font-family: 'Biomorph';
+  src: url('BiomorphBoldDemo-8OvBM') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.hero-font-heavy {
+  font-family: 'Moldie Demo', 'Biomorph', 'Anton', 'Impact', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 640px) {
+  .hero-font-heavy { line-height: 0.82; }
+}
+
+.brand-wordmark-angled {
+  font-family: 'Anton', 'Impact', sans-serif;
+  transform: rotate(-9deg);
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+}
+
+/* HERO VIDEO BACKGROUND */
+.hero-bg-image {
+  background-color: #3800ff;
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.hero-bg-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10,10,20,0.20) 0%,
+    rgba(10,10,20,0.45) 100%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-top-scrim::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 160px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.clay-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 32px;
+  box-shadow:
+    20px 24px 45px -10px rgba(0, 10, 80, 0.28),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.9),
+    inset -4px -4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.45s ease;
+}
+
+.clay-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow:
+    24px 34px 55px -8px rgba(0, 10, 80, 0.36),
+    inset 3px 3px 8px rgba(255, 255, 255, 0.95),
+    inset -4px -4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+
+
+
+
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 03 Teletype — typewriter with blinking caret (word must match the ch width) */
+.fx-typewriter {
+  box-sizing: content-box; /* the caret sits outside the character-count width */
+  font: 600 24px/1.2 "JetBrains Mono", monospace;
+  letter-spacing: 0;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  width: 10ch; /* = number of characters typed */
+  border-right: .55ch solid var(--ink-2);
+  animation: fx-type 3.6s steps(10) infinite,
+             fx-caret .65s steps(1) infinite;
+}
+@keyframes fx-type {
+  0%, 8%    { width: 0; }
+  55%, 100% { width: 10ch; }
+}
+@keyframes fx-caret {
+  50% { border-color: transparent; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.clay-badge {
+  border-radius: 9999px;
+  box-shadow:
+    4px 6px 14px rgba(0, 0, 0, 0.18),
+    inset 1.5px 1.5px 3px rgba(255, 255, 255, 0.8),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes marqueeRightToLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marqueeRightToLeft 24s linear infinite;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: 200%;
+  animation: marqueeRightToLeft 20s linear infinite reverse;
+}
+
+@keyframes floatSine {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-16px) rotate(2deg); }
+  66% { transform: translateY(10px) rotate(-1.5deg); }
+}
+
+@keyframes floatSineDelayed {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  40% { transform: translateY(-22px) rotate(-2.5deg); }
+  80% { transform: translateY(8px) rotate(1.8deg); }
+}
+
+@keyframes bounceBadge {
+  0%, 100% { transform: scale(1) rotate(-3deg); }
+  50% { transform: scale(1.08) rotate(4deg); }
+}
+
+.animate-float-sine { animation: floatSine 6.8s ease-in-out infinite; }
+.animate-float-delayed { animation: floatSineDelayed 7.6s ease-in-out infinite; }
+.animate-bounce-badge { animation: bounceBadge 4.5s ease-in-out infinite; }
+
+.hand-drawn-pill {
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  border-radius: 54% 46% 52% 48% / 46% 54% 46% 54%;
+  transform: rotate(-1.5deg);
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hand-drawn-pill:hover {
+  transform: rotate(0deg) scale(1.07);
+  background-color: #E2FF3B;
+  color: #000;
+  border-color: #E2FF3B;
+  box-shadow: 0 10px 30px rgba(226, 255, 59, 0.4);
+}
+
+#custom-cursor {
+  pointer-events: none;
+  transition: transform 0.15s ease-out, opacity 0.2s ease;
+  transform: translate(-50%, -50%);
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(48px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal="fade"] { transform: none; }
+[data-reveal="slide-left"] { transform: translateX(-70px); }
+[data-reveal="slide-left"].revealed { transform: translateX(0); }
+[data-reveal="slide-right"] { transform: translateX(70px); }
+[data-reveal="slide-right"].revealed { transform: translateX(0); }
+[data-reveal="scale"] { transform: scale(0.85); }
+[data-reveal="scale"].revealed { transform: scale(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+#navbar {
+  transition: background-color 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease;
+}
+
+/* LOGO MARQUEE */
+.marquee-container {
+  overflow: clip;
+  position: relative;
+  width: 100%;
+}
+
+.marquee {
+  --gap: 48px;
+  --speed: 28s;
+  --direction: normal;
+  --background: #b6858500;
+
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation-name: marquee-animation;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: var(--speed);
+  animation-direction: var(--direction);
+  background-color: var(--background);
+  padding-left: var(--gap);
+  gap: var(--gap);
+}
+
+.marquee img {
+  height: 80px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  filter: grayscale(0%);
+  opacity: 0.85;
+  transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
+}
+
+.marquee img:hover {
+  transform: scale(1.08);
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+@keyframes marquee-animation {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .marquee { --gap: 28px; }
+  .marquee img { height: 38px; max-width: 100px; }
+}
+</style>
+</head>
+
+<body class="bg-electric-blue text-white selection:bg-neon-lime selection:text-black font-sans antialiased overflow-x-hidden relative">
+
+<div class="fixed top-0 left-0 w-8 h-8 rounded-full bg-neon-lime mix-blend-difference pointer-events-none z-50 hidden sm:flex items-center justify-center opacity-80 transition-opacity" id="custom-cursor" style="left: 628px; top: 635px; transform: translate(-50%, -50%) scale(1); background-color: rgb(226, 255, 59);">
+  <div class="w-2 h-2 rounded-full bg-black"></div>
+</div>
+
+<!-- BEGIN: Main Header -->
+<header class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-10 py-1.5 sm:py-2.5 flex items-center justify-between gap-2 bg-transparent border-b border-transparent" data-purpose="site-navigation" id="navbar">
+  <a aria-label="Likely Story Homepage" class="flex flex-col select-none group focus:outline-none shrink-0" href="#hero">
+    <div class="brand-wordmark-angled text-white font-extrabold text-base sm:text-xl tracking-tighter drop-shadow-md group-hover:scale-110 group-hover:rotate-0 transition-transform duration-300">
+      <div>ECHORE</div>
+      <div class="tracking-normal text-neon-lime">STUDIO</div>
+    </div>
+  </a>
+
+  <button class="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 hover:bg-neon-lime hover:text-black border border-white/30 transition-all text-[10px] font-mono font-bold tracking-wider uppercase group backdrop-blur-sm" id="reel-badge" onclick="toggleAudioPreview()">
+    <span class="w-2 h-2 rounded-full bg-bold-red animate-pulse group-hover:bg-black"></span>
+    <span id="reel-text">ATELIER SOUND [PLAY 44.1kHz]</span>
+  </button>
+
+  <nav class="flex items-center space-x-2.5 sm:space-x-8 text-[10px] sm:text-sm font-bold tracking-wider uppercase shrink-0">
+    <a class="text-white hover:text-neon-lime transition-colors drop-shadow-md" href="#work">Work</a>
+    <a class="text-white hover:text-neon-lime transition-colors drop-shadow-md" href="#ethos">Ethos</a>
+    <a class="text-white hover:text-neon-lime transition-colors drop-shadow-md" href="#about">Studio</a>
+    <a class="px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-white text-black font-extrabold hover:bg-neon-lime hover:scale-105 transition-all text-[9px] sm:text-[11px] tracking-widest shadow-lg" href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<!-- HERO SECTION -->
+<section class="relative w-full min-h-[100svh] hero-bg-image hero-top-scrim overflow-hidden select-none flex flex-col pt-12 sm:pt-16 pb-4 sm:pb-8" data-purpose="hero-banner" id="hero">
+
+  <!-- HERO BACKGROUND VIDEO -->
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="herovid.mp4" type="video/mp4">
+  </video>
+
+  <div class="relative z-30 w-full max-w-[1920px] mx-auto px-4 sm:px-10 flex justify-end mb-3 sm:mb-0"></div>
+
+  <div class="relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-10 flex-1 flex flex-col justify-center gap-y-3 sm:gap-y-0 py-6 sm:py-10">
+<!-- <h1 class="hero-font-heavy text-[#e1ff3c] text-[clamp(60px,16vw,320px)] tracking-tight drop-shadow-md">SMALL</h1>
+    <div class="hero-font-heavy text-white text-[clamp(64px,10vw,340px)] tracking-tight drop-shadow-2xl">STUDIO</div>
+    <div class="flex justify-end mt-1 sm:mt-0">
+      <div class="text-right">
+    <div class="hero-font-heavy text-[#e1ff3c] text-[clamp(64px,10vw,340px)] tracking-tighter drop-shadow-md">BIG</div>
+        <div class="hero-font-heavy text-white text-[clamp(60px,16vw,320px)] tracking-tight drop-shadow-2xl">IDEAS</div> -->
+
+
+
+<h1 class="hero-font-heavy text-[#e1ff3c] text-[clamp(60px,15vw,320px)] tracking-tight drop-shadow-md">SMALL</h1>
+    <div class="hero-font-heavy text-white text-[clamp(64px,30vw,340px)] tracking-tight drop-shadow-2xl">STUDIO</div>
+    <div class="flex justify-end mt-1 sm:mt-0">
+      <div class="text-right">
+    <div class="hero-font-heavy text-[#e1ff3c] text-[clamp(64px,30vw,340px)] tracking-tighter drop-shadow-md">BIG</div>
+        <div class="hero-font-heavy text-white text-[clamp(60px,18vw,320px)] tracking-tight drop-shadow-2xl">IDEAS</div>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-[13%] sm:bottom-[10%] lg:bottom-[8%] left-[-8%] sm:left-[2%] md:left-[5%] lg:left-[7%] w-[28vw] sm:w-[36vw] md:w-[30vw] lg:w-[26vw] max-w-[400px] z-10 pointer-events-none animate-float-sine drop-shadow-[0_35px_35px_rgba(0,0,0,0.55)]"></div>
+
+  <div class="hidden sm:flex absolute right-[4%] sm:right-[8%] top-[22%] w-[8vw] max-w-[110px] min-w-[55px] z-20 pointer-events-none animate-float-delayed flex-col items-center">
+    <defs>
+      <radialGradient cx="35%" cy="30%" id="orbGrad" r="65%">
+        <stop offset="0%" stop-color="#ffffff"></stop>
+        <stop offset="25%" stop-color="#b695e8"></stop>
+        <stop offset="60%" stop-color="#4e3188"></stop>
+        <stop offset="100%" stop-color="#231247"></stop>
+      </radialGradient>
+      <linearGradient id="bowlGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+        <stop offset="0%" stop-color="#ffb259"></stop>
+        <stop offset="50%" stop-color="#e25d22"></stop>
+        <stop offset="100%" stop-color="#b13309"></stop>
+      </linearGradient>
+      <linearGradient id="bottleGrad" x1="15%" x2="85%" y1="0%" y2="100%">
+        <stop offset="0%" stop-color="#49386c"></stop>
+        <stop offset="35%" stop-color="#1f1836"></stop>
+        <stop offset="85%" stop-color="#0e0a1b"></stop>
+        <stop offset="100%" stop-color="#2c224a"></stop>
+      </linearGradient>
+      <radialGradient cx="35%" cy="35%" id="yellowSphereGrad" r="60%">
+        <stop offset="0%" stop-color="#fff88b"></stop>
+        <stop offset="55%" stop-color="#f5a914"></stop>
+        <stop offset="100%" stop-color="#a65d00"></stop>
+      </radialGradient>
+      <linearGradient id="pinkStarGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+        <stop offset="0%" stop-color="#ffc8dd"></stop>
+        <stop offset="50%" stop-color="#f78da7"></stop>
+        <stop offset="100%" stop-color="#b84668"></stop>
+      </linearGradient>
+    </defs>
+    <g transform="translate(80, 50)">
+      <circle cx="0" cy="0" fill="url(#orbGrad)" r="42"></circle>
+      <path d="M-40 -4 C-10 -35 25 -32 40 -10 C32 10 -5 5 -40 -4 Z" fill="#ffffff" opacity="0.9"></path>
+      <path d="M-38 10 C-15 28 20 28 39 8 C33 28 -8 32 -38 10 Z" fill="#ff702e"></path>
+      <circle cx="-16" cy="-18" fill="#ffffff" opacity="0.8" r="7"></circle>
+    </g>
+    <g transform="translate(80, 155)">
+      <rect fill="#e0e0e0" height="18" rx="5" width="12" x="-6" y="-22"></rect>
+      <rect fill="#4d94ff" height="7" rx="3.5" width="36" x="-18" y="-7"></rect>
+      <path d="M-55 0 C-55 45 55 45 55 0 Z" fill="url(#bowlGrad)"></path>
+      <path d="M-32 12 C-15 28 0 10 18 20 C28 26 35 15 42 12" fill="none" opacity="0.75" stroke="#ffffff" stroke-linecap="round" stroke-width="4.5"></path>
+      <ellipse cx="0" cy="0" fill="#f89b4b" rx="55" ry="9"></ellipse>
+    </g>
+    <g transform="translate(80, 275)">
+      <path d="M-10 -75 L10 -75 L12 -45 L-12 -45 Z" fill="#2d224d"></path>
+      <ellipse cx="0" cy="-75" fill="#7561a3" rx="14" ry="4.5"></ellipse>
+      <path d="M-12 -45 C-12 -25 -38 -10 -38 25 C-38 55 38 55 38 25 C38 -10 12 -25 12 -45 Z" fill="url(#bottleGrad)"></path>
+      <path d="M-28 10 C-32 24 -28 38 -22 42" opacity="0.45" stroke="#ffffff" stroke-linecap="round" stroke-width="3"></path>
+    </g>
+    <g transform="translate(80, 370)">
+      <circle cx="0" cy="0" fill="url(#yellowSphereGrad)" r="19"></circle>
+      <circle cx="-7" cy="-7" fill="#ffffff" opacity="0.6" r="4.5"></circle>
+    </g>
+    <g transform="translate(80, 440)">
+      <path d="M-45 -18 L15 -42 L48 -5 L22 35 L-38 28 Z" fill="url(#pinkStarGrad)"></path>
+      <path d="M-45 -18 L-8 -2 L-38 28 Z" fill="#eb7391"></path>
+      <path d="M-8 -2 L48 -5 L22 35 Z" fill="#ffaec3"></path>
+      <path d="M-8 -2 L15 -42 L48 -5 Z" fill="#ffffff" opacity="0.4"></path>
+    </g>
+  </div>
+
+  <div class="relative z-30 px-4 sm:px-12 w-full max-w-[1920px] mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 mt-4 sm:mt-0">
+    <div class="flex items-center gap-2 sm:gap-3">
+      <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-neon-lime inline-block animate-ping shrink-0"></span>
+      <span class="font-mono text-[9px] sm:text-xs uppercase tracking-widest text-white/90 drop-shadow-md">BRIDGING AI, CODE &amp; CAPTIVATING MEDIA — Q2/Q3 PARTNERSHIPS OPEN</span>
+    </div>
+    <div class="text-[9px] sm:text-xs font-mono uppercase tracking-widest text-white/70 drop-shadow-md">SCROLL TO EXPLORE ARCHIVE ↓</div>
+  </div>
+</section>
+
+<div class="w-full bg-black py-4 sm:py-5 overflow-hidden border-y-2 border-neon-lime select-none z-30 relative">
+  <div class="animate-marquee whitespace-nowrap flex items-center font-display uppercase text-2xl sm:text-4xl tracking-tight text-white">
+    <span class="mx-4 text-neon-lime">★</span> AI &amp; AUTOMATION SERVICES
+    <span class="mx-4 text-bubble-pink">✦</span> DIGITAL &amp; DEVELOPMENT
+    <span class="mx-4 text-neon-lime">★</span> CREATIVE &amp; CONTENT
+    <span class="mx-4 text-neon-purple">✦</span> ALL-IN-ONE GROWTH PARTNER
+    <span class="mx-4 text-neon-lime">★</span> AI &amp; AUTOMATION SERVICES
+    <span class="mx-4 text-bubble-pink">✦</span> DIGITAL &amp; DEVELOPMENT
+    <span class="mx-4 text-neon-lime">★</span> CREATIVE &amp; CONTENT
+    <span class="mx-4 text-neon-purple">✦</span> ALL-IN-ONE GROWTH PARTNER
+  </div>
+</div>
+
+<section class="py-24 sm:py-32 bg-white text-brand-dark rounded-t-[44px] sm:rounded-t-[72px] relative z-20 shadow-2xl overflow-hidden" data-purpose="portfolio-work-showcase" id="work">
+  <div class="absolute -top-40 right-[-100px] w-96 h-96 bg-neon-purple/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="max-w-[1440px] mx-auto px-6 sm:px-12">
+
+    <div data-reveal class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 sm:mb-24 pb-8 border-b-4 border-black gap-6">
+      <div>
+        <div class="flex items-center gap-3 mb-3 flex-wrap">
+          <span class="px-3.5 py-1 rounded-full bg-bold-red text-white font-mono text-xs font-bold tracking-widest uppercase">PROOF IN THE PUDDING</span>
+        </div>
+        <h2 class="hero-font-heavy text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase text-black tracking-tight leading-[0.82]">OUR Services</h2>
+      </div>
+      <div class="max-w-md">
+        <p class="text-gray-700 text-base sm:text-xl font-medium leading-relaxed">We design digital playgrounds, brand systems, and tactile web spaces that refuse to be ignored. Zero fluff. Pure kinetic punch.</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10" data-reveal-group>
+
+      <article data-reveal class="md:col-span-7 group clay-card p-4 sm:p-6 cursor-pointer" data-purpose="portfolio-card">
+        <div class="relative w-full aspect-[16/11] rounded-2xl overflow-hidden bg-neutral-900 shadow-inner">
+          <img alt="Askonas Holt - Classical arts and ballet choreography" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" src="auto.png">
+          <div class="absolute top-4 left-4 clay-badge bg-black/85 backdrop-blur-md px-4 py-1.5 text-xs font-mono font-bold text-white uppercase tracking-wider">Digital &amp; Brand System</div>
+          <div class="absolute bottom-4 right-4 bg-neon-lime text-black font-extrabold text-xs px-3 py-1 rounded-full font-mono uppercase tracking-widest shadow-md">★</div>
+        </div>
+        <div class="pt-6 pb-2 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-electric-blue font-bold">Automation For Buisnesses</span>
+            <h3 class="hero-font-heavy text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-black group-hover:text-electric-blue transition-colors">Build Your Workflow</h3>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono uppercase font-bold text-gray-500"></span>
+            <span class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center font-bold text-sm group-hover:bg-electric-blue group-hover:scale-110 transition-all shadow-md">↗</span>
+          </div>
+        </div>
+      </article>
+
+      <article data-reveal class="md:col-span-5 md:mt-12 group clay-card p-4 sm:p-6 cursor-pointer" data-purpose="portfolio-card">
+        <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-900 shadow-inner">
+          <img alt="Novo Banking - Mobile fintech UI and brand identity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" src="creative.png">
+          <div class="absolute top-4 left-4 clay-badge bg-electric-blue text-white px-3.5 py-1 text-xs font-mono font-bold uppercase tracking-wider">Creative</div>
+        </div>
+        <div class="pt-6 pb-2 flex items-end justify-between">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-electric-blue font-bold">Complete creative and media production</span>
+            <h3 class="hero-font-heavy text-3xl sm:text-4xl uppercase tracking-tight text-black group-hover:text-electric-blue transition-colors">Build Your Presence</h3>
+          </div>
+          <span class="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center font-bold text-sm group-hover:bg-neon-lime group-hover:text-black group-hover:scale-110 transition-all shadow-md">↗</span>
+        </div>
+      </article>
+
+      <article data-reveal class="md:col-span-5 group clay-card p-4 sm:p-6 cursor-pointer" data-purpose="portfolio-card">
+        <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-900 shadow-inner">
+          <img alt="Bertch Capital - Modern industrial architecture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" src="web.png">
+          <div class="absolute top-4 left-4 clay-badge bg-black/85 backdrop-blur-md px-3.5 py-1 text-xs font-mono font-bold text-white uppercase tracking-wider">Websites & Apps</div>
+        </div>
+        <div class="pt-6 pb-2 flex items-end justify-between">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-electric-blue font-bold">Web, app, and digital design.</span>
+            <h3 class="hero-font-heavy text-3xl sm:text-4xl uppercase tracking-tight text-black group-hover:text-electric-blue transition-colors">Shape Your Interface</h3>
+          </div>
+          <span class="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center font-bold text-sm group-hover:bg-electric-blue group-hover:scale-110 transition-all shadow-md">↗</span>
+        </div>
+      </article>
+
+      <article data-reveal class="md:col-span-7 group clay-card p-4 sm:p-6 cursor-pointer" data-purpose="portfolio-card">
+        <div class="relative w-full aspect-[16/11] rounded-2xl overflow-hidden bg-neutral-900 shadow-inner">
+          <img alt="Our Revolution - Beverage storytelling and vivid lifestyle photography" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" src="ecom.png">
+          <div class="absolute top-4 left-4 clay-badge bg-bubble-pink text-black px-4 py-1 text-xs font-mono font-bold uppercase tracking-wider">E-commerce</div>
+        </div>
+        <div class="pt-6 pb-2 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-electric-blue font-bold">Seamless e-commerce and store management.</span>
+            <h3 class="hero-font-heavy text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-black group-hover:text-electric-blue transition-colors">Scale Your Online Sales</h3>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono uppercase font-bold text-gray-500">Sydney / Global</span>
+            <span class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center font-bold text-sm group-hover:bg-electric-blue group-hover:scale-110 transition-all shadow-md">↗</span>
+          </div>
+        </div>
+      </article>
+
+      <article data-reveal="scale" class="md:col-span-12 group clay-card p-6 sm:p-10 bg-gradient-to-br from-neutral-900 to-black text-white cursor-pointer relative overflow-hidden" data-purpose="portfolio-featured-wide">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          <div class="lg:col-span-5 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4 flex-wrap">
+              <span class="px-3.5 py-1 rounded-full bg-neon-lime text-black font-mono text-xs font-extrabold uppercase">MEET THE TEAM</span>
+              <span class="text-xs font-mono text-neutral-400 uppercase">BEHIND ECHORE</span>
+            </div>
+            <h3 class="hero-font-heavy text-4xl sm:text-6xl uppercase tracking-tight text-white mb-4">THE MAKERS</h3>
+            <p class="text-neutral-300 text-base sm:text-lg mb-6 leading-relaxed">A multidisciplinary collective of digital architects, creative strategists, and automation experts leveraging cutting-edge tools to scale your brand's digital presence.</p>
+            <div class="flex flex-wrap gap-3 font-mono text-xs uppercase tracking-wider text-neon-lime">
+              <span class="px-3 py-1 rounded-md bg-white/10">#AIAUTOMATION</span>
+              <span class="px-3 py-1 rounded-md bg-white/10">#CREATIVESTUDIO</span>
+              <span class="px-3 py-1 rounded-md bg-white/10">#DIGITALDESIGN</span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 rounded-2xl overflow-hidden shadow-2xl border border-white/15 bg-white flex items-center justify-center min-h-[240px] sm:min-h-[280px]">
+            <div class="marquee-container">
+              <div class="marquee">
+                <img src="https://cdn.brandfetch.io/openai.com/logo?c=1id9gSQYSNw8Mf4xwCA" alt="openai">
+                <img src="https://cdn.brandfetch.io/anthropic.com/logo?c=1id9gSQYSNw8Mf4xwCA" alt="anthropic">
+                <img src="https://cdn.brandfetch.io/claude.com/logo?c=1id9gSQYSNw8Mf4xwCA" alt="claude">
+                <img src="https://cdn.brandfetch.io/n8n.io/logo?c=1id9gSQYSNw8Mf4xwCA" alt="n8n.io">
+                <img src="https://cdn.brandfetch.io/fkrt.it/logo?c=1id9gSQYSNw8Mf4xwCA" alt="Flipkart">
+                <img src="https://cdn.brandfetch.io/meesho.com/logo?c=1id9gSQYSNw8Mf4xwCA" alt="Meesho">
+                <img src="https://cdn.brandfetch.io/photoshop.com/logo?c=1id9gSQYSNw8Mf4xwCA" alt="Photoshop">
+                <img src="https://cdn.brandfetch.io/adobe.com/logo?c=1id9gSQYSNw8Mf4xwCA" alt="Adobe">
+                <img src="https://cdn.brandfetch.io/meta.ai/logo?c=1id9gSQYSNw8Mf4xwCA" alt="Meta.ai">
+                <img src="https://cdn.brandfetch.io/wa.me/logo?c=1id9gSQYSNw8Mf4xwCA" alt="WhatsApp">
+                <img src="https://cdn.brandfetch.io/canvadesign.com/logo?c=1id9gSQYSNw8Mf4xwCA" alt="Canva">
+                <img src="https://cdn.brandfetch.io/openai.com/logo?c=1id9gSQYSNw8Mf4xwCA" alt="openai">
+                <img src="https://cdn.brandfetch.io/anthropic.com/logo?c=1id9gSQYSNw8Mf4xwCA" alt="anthropic">
+                <img src="https://cdn.brandfetch.io/claude.com/logo?c=1id9gSQYSNw8Mf4xwCA" alt="claude">
+                <img src="https://cdn.brandfetch.io/n8n.io/logo?c=1id9gSQYSNw8Mf4xwCA" alt="n8n.io">
+                <img src="https://cdn.brandfetch.io/fkrt.it/logo?c=1id9gSQYSNw8Mf4xwCA" alt="Flipkart">
+                <img src="https://cdn.brandfetch.io/meesho.com/logo?c=1id9gSQYSNw8Mf4xwCA" alt="Meesho">
+                <img src="https://cdn.brandfetch.io/photoshop.com/logo?c=1id9gSQYSNw8Mf4xwCA" alt="Photoshop">
+                <img src="https://cdn.brandfetch.io/adobe.com/logo?c=1id9gSQYSNw8Mf4xwCA" alt="Adobe">
+                <img src="https://cdn.brandfetch.io/meta.ai/logo?c=1id9gSQYSNw8Mf4xwCA" alt="Meta.ai">
+                <img src="https://cdn.brandfetch.io/wa.me/logo?c=1id9gSQYSNw8Mf4xwCA" alt="WhatsApp">
+                <img src="https://cdn.brandfetch.io/canvadesign.com/logo?c=1id9gSQYSNw8Mf4xwCA" alt="Canva">
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article data-reveal class="md:col-span-6 group clay-card p-4 sm:p-6 cursor-pointer" data-purpose="portfolio-card">
+        <!-- Original card content was commented out in the supplied HTML. -->
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="w-full bg-electric-blue py-4 sm:py-5 overflow-hidden border-y-2 border-white/20 select-none z-30 relative">
+  <div class="animate-marquee-reverse whitespace-nowrap flex items-center font-display uppercase text-2xl sm:text-4xl tracking-tight text-white">
+    <span class="mx-4 text-neon-lime">★</span> INTELLIGENT WORKFLOWS
+    <span class="mx-4 text-white">✦</span> CUSTOM WEB &amp; APPS
+    <span class="mx-4 text-neon-lime">★</span> EDITORIAL VIDEO &amp; SOCIAL
+    <span class="mx-4 text-bubble-pink">✦</span> ZERO CLICHÉS ONLY IMPACT
+    <span class="mx-4 text-neon-lime">★</span> INTELLIGENT WORKFLOWS
+    <span class="mx-4 text-white">✦</span> CUSTOM WEB &amp; APPS
+    <span class="mx-4 text-neon-lime">★</span> EDITORIAL VIDEO &amp; SOCIAL
+    <span class="mx-4 text-bubble-pink">✦</span> ZERO CLICHÉS ONLY IMPACT
+  </div>
+</div>
+
+<section class="py-24 sm:py-36 bg-brand-dark text-white relative z-10 overflow-hidden" data-purpose="agency-ethos" id="ethos">
+  <div class="max-w-[1440px] mx-auto px-6 sm:px-12 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div data-reveal="slide-left" class="lg:col-span-7">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-3 h-3 rounded-full bg-neon-lime"></span>
+          <span class="text-neon-lime font-mono font-bold tracking-widest text-xs uppercase">OUR CREATIVE CODE</span>
+        </div>
+
+        <p class="hero-font-heavy text-4xl sm:text-6xl md:text-7xl uppercase tracking-tight leading-[0.9] sm:leading-[0.84] text-white mb-8">WE BRIDGE CUTTING-EDGE TECHNOLOGY, ROBUST DIGITAL INFRASTRUCTURE, AND CAPTIVATING MEDIA TO ENGINEER COMPREHENSIVE ECOSYSTEMS FOR FORWARD-THINKING BRANDS.</p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-2 gap-4 sm:gap-6 pt-6 border-t border-white/15">
+          <div class="flex items-center gap-2 sm:gap-3"><span class="text-neon-lime text-lg sm:text-xl">✦</span><span class="font-mono text-[10px] sm:text-sm uppercase tracking-wider font-bold">AI &amp; Automation</span></div>
+          <div class="flex items-center gap-2 sm:gap-3"><span class="text-bubble-pink text-lg sm:text-xl">✦</span><span class="font-mono text-[10px] sm:text-sm uppercase tracking-wider font-bold">Digital &amp; Dev</span></div>
+          <div class="flex items-center gap-2 sm:gap-3"><span class="text-electric-blue text-lg sm:text-xl">✦</span><span class="font-mono text-[10px] sm:text-sm uppercase tracking-wider font-bold">Creative &amp; Content</span></div>
+          <div class="flex items-center gap-2 sm:gap-3"><span class="text-bold-red text-lg sm:text-xl">✦</span><span class="font-mono text-[10px] sm:text-sm uppercase tracking-wider font-bold">Growth Ecosystems</span></div>
+        </div>
+      </div>
+
+      <div data-reveal="slide-right" class="lg:col-span-5 flex justify-center relative">
+        <div class="w-full max-w-[460px] animate-float-sine relative">
+          <div class="absolute inset-0 bg-electric-blue/40 rounded-full blur-3xl -z-10"></div>
+          <img alt="Playful 3D claymorphic designer character with colorful ribbon swirls" class="w-full h-auto drop-shadow-[0_30px_35px_rgba(0,0,0,0.7)] select-none rounded-3xl" src="pic2.png">
+          <div class="absolute -bottom-4 right-2 clay-badge bg-neon-lime text-black px-4 py-2 font-mono text-xs font-extrabold uppercase rotate-[-4deg]">ALWAYS PLAYFUL ★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="relative bg-electric-blue min-h-[760px] sm:min-h-[920px] lg:min-h-[1050px] flex items-center justify-center overflow-hidden py-20 sm:py-32" data-purpose="contact-cta" id="contact">
+  <div class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-deep-blue rounded-full filter blur-[150px] opacity-70 pointer-events-none"></div>
+  <div class="absolute -bottom-32 -right-32 w-[550px] h-[550px] bg-bubble-pink rounded-full filter blur-[180px] opacity-30 pointer-events-none"></div>
+
+  <div class="max-w-[1440px] mx-auto px-6 sm:px-12 w-full relative z-10">
+    <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-14">
+      <div data-reveal="scale" class="relative w-52 sm:w-80 md:w-96 lg:w-[460px] flex-shrink-0 animate-float-delayed z-10 drop-shadow-[0_35px_40px_rgba(0,0,0,0.45)]">
+        <!-- <img alt="Floating 3D surreal avatar mascot for Work With Us" class="w-full h-auto select-none pointer-events-none" src="work.png"> -->
+      </div>
+
+      <div data-reveal class="flex flex-col text-left z-20 w-full lg:w-auto items-center lg:items-start text-center lg:text-left">
+        <div class="clay-badge bg-black/60 text-white font-mono text-xs font-bold px-4 py-1.5 uppercase tracking-widest inline-flex self-center lg:self-start mb-4 border border-white/20">NEW BUSINESS &amp; INQUIRIES</div>
+
+        <h2 class="hero-font-heavy text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] tracking-tighter uppercase leading-[0.82] sm:leading-[0.78] select-none">
+          <span class="block text-black">WORK</span>
+          <span class="block text-white">WITH US</span>
+        </h2>
+
+        <div class="mt-8 sm:mt-12 flex flex-col sm:flex-row sm:items-center gap-4 text-base sm:text-xl font-medium text-white items-center lg:items-start">
+          <span class="font-sans font-semibold">Want to work together? Email us:</span>
+          <a aria-label="Send email to hello@echore.agency" class="hand-drawn-pill inline-block px-6 py-2.5 text-white font-mono font-bold tracking-tight text-base sm:text-xl focus:outline-none cursor-pointer text-center" href="mailto:hello@echore.agency">echore.studios@gmail.com</a>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/20 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 font-mono text-xs text-white/80 uppercase">
+          <span>📍 New Delhi</span>
+          <span>☎ +91 7011588835</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer data-reveal="fade" class="bg-black text-white text-xs sm:text-sm py-10 sm:py-12 border-t-2 border-white/15" data-purpose="site-footer">
+  <div class="max-w-[1440px] mx-auto px-6 sm:px-12 flex flex-col md:flex-row items-center justify-between gap-8">
+    <div class="flex items-center space-x-6">
+      <a aria-label="Likely Story Brand" class="brand-wordmark-angled text-2xl uppercase tracking-tighter text-white hover:text-neon-lime transition-colors" href="#hero">
+        <div>ECHORE</div>
+        <div class="text-neon-lime">STUDIO</div>
+      </a>
+      <div class="text-neutral-400 text-xs pl-6 border-l border-white/20 hidden sm:block">
+        © Echore Agency Ltd. All Rights Reserved 2026. <br>
+        <a class="hover:text-neon-lime transition-colors underline" href="#">Privacy Policy &amp; Terms</a>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
+      <div class="text-neutral-400 font-mono text-xs text-center sm:text-right">Crafted with care by Aamir</div>
+
+      <div class="flex items-center space-x-4">
+        <a aria-label="Likely Story on Instagram" class="w-10 h-10 rounded-full bg-white/10 hover:bg-neon-lime hover:text-black flex items-center justify-center transition-all p-2 text-white" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
+          <svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+          </svg>
+        </a>
+
+        <a aria-label="Likely Story on X" class="w-10 h-10 rounded-full bg-white/10 hover:bg-neon-lime hover:text-black flex items-center justify-center transition-all p-2 text-white" href="https://twitter.com" rel="noopener noreferrer" target="_blank">
+          <svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Transparent → subtle scrolled navbar
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    navbar.classList.add('bg-brand-dark/75', 'backdrop-blur-md', 'border-white/10');
+  } else {
+    navbar.classList.remove('bg-brand-dark/75', 'backdrop-blur-md', 'border-white/10');
+  }
+}, { passive: true });
+
+// Reactive Cursor
+const cursor = document.getElementById('custom-cursor');
+
+if (cursor && window.matchMedia('(pointer: fine)').matches) {
+  window.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+
+  document.querySelectorAll('a, button, article, [data-purpose="portfolio-card"]').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(2.2)';
+      cursor.style.backgroundColor = '#E2FF3B';
+    });
+
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+      cursor.style.backgroundColor = '#E2FF3B';
+    });
+  });
+} else if (cursor) {
+  cursor.style.display = 'none';
+}
+
+// Reveal on scroll
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('[data-reveal-group]').forEach(group => {
+  const items = group.querySelectorAll('[data-reveal]');
+  items.forEach((el, i) => {
+    el.style.setProperty('--reveal-delay', `${Math.min(i * 100, 500)}ms`);
+  });
+});
+
+document.querySelectorAll('[data-reveal]').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// Audio showreel toggle
+let isPlaying = false;
+let audioCtx = null;
+
+function toggleAudioPreview() {
+  const text = document.getElementById('reel-text');
+  const badge = document.getElementById('reel-badge');
+
+  if (!isPlaying) {
+    isPlaying = true;
+    text.innerText = "ATELIER SOUND [LIVE PLAYING ♫]";
+    badge.classList.add('bg-neon-lime', 'text-black');
+
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc1 = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+
+      osc1.type = 'sine';
+      osc1.frequency.setValueAtTime(440, audioCtx.currentTime);
+      gainNode.gain.setValueAtTime(0.04, audioCtx.currentTime);
+
+      osc1.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      osc1.start();
+
+      setTimeout(() => {
+        if (audioCtx && audioCtx.state !== 'closed') {
+          audioCtx.close();
+        }
+
+        isPlaying = false;
+        text.innerText = "ATELIER SOUND [PLAY 44.1kHz]";
+        badge.classList.remove('bg-neon-lime', 'text-black');
+      }, 3500);
+    } catch(e) {}
+  } else {
+    if (audioCtx && audioCtx.state !== 'closed') {
+      audioCtx.close();
+    }
+
+    isPlaying = false;
+    text.innerText = "ATELIER SOUND [PLAY 44.1kHz]";
+    badge.classList.remove('bg-neon-lime', 'text-black');
+  }
+}
+</script>
+
+</body>
+</html>
