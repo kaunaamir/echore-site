@@ -1,51 +1,29 @@
 
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
+<html class="scroll-smooth" lang="en-IN">
 <head>
 <meta charset="utf-8">
+<style>html{background:#000}</style>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Likely Story — Small Studio Big Ideas | Boutique Digital Atelier</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect">
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@400;500;600;700;800;900&amp;family=Syne:wght@700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
-
-<script data-purpose="tailwind-config">
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        'electric-blue': '#3800ff',
-        'deep-blue': '#2800cf',
-        'neon-purple': '#5214FF',
-        'neon-lime': '#E2FF3B',
-        'bold-red': '#FF001F',
-        'bubble-pink': '#FF65BE',
-        'brand-dark': '#0a0a0c',
-        'brand-yellow': '#FFDE59',
-      },
-      fontFamily: {
-        display: ['Anton', 'Impact', 'Syne', 'sans-serif'],
-        syne: ['Syne', 'sans-serif'],
-        sans: ['Outfit', 'Plus Jakarta Sans', 'sans-serif'],
-        mono: ['Space Grotesk', 'monospace'],
-      }
-    }
-  }
-}
-</script>
+<title>Echore — Digital Agency in New Delhi | AI Automation, Creative, Web &amp; E-commerce</title>
+<meta name="description" content="Echore is a New Delhi digital agency offering AI automation, creative content, websites &amp; apps, and e-commerce solutions for growing businesses.">
+<meta name="theme-color" content="#3800ff">
+<meta property="og:title" content="Echore — Digital Agency in New Delhi">
+<meta property="og:description" content="AI automation, creative content, web &amp; apps and e-commerce — one growth partner.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Echore">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/css/index.css" as="style">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"></noscript>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Echore","description":"Digital agency offering AI automation, creative content, web and app development and e-commerce solutions.","telephone":"+91 7011588835","email":"echore.agency@gmail.com","address":{"@type":"PostalAddress","addressLocality":"New Delhi","addressRegion":"Delhi","addressCountry":"IN"}}</script>
+<noscript><style>[data-reveal]{opacity:1!important;transform:none!important}.pre-load{display:none!important}.main-wrap{opacity:1!important}</style></noscript>
 
 <style data-purpose="masterwork-styles">
-@font-face {
-  font-family: 'Biomorph';
-  src: url('BiomorphBoldDemo-8OvBM') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 .hero-font-heavy {
-  font-family: 'Moldie Demo', 'Biomorph', 'Anton', 'Impact', sans-serif;
+  font-family: 'Anton', 'Impact', sans-serif;
   font-weight: bold;
   text-transform: uppercase;
   line-height: 0.9;
@@ -121,43 +99,6 @@ tailwind.config = {
     inset 3px 3px 8px rgba(255, 255, 255, 0.95),
     inset -4px -4px 12px rgba(0, 0, 0, 0.12);
 }
-
-
-
-
-
-
-
-/* Colour tokens — override to re-skin the effect:
-   --ink    main text colour (defaults to currentColor)
-   --ink-2  primary accent   --ink-3  secondary accent */
-:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
-
-/* 03 Teletype — typewriter with blinking caret (word must match the ch width) */
-.fx-typewriter {
-  box-sizing: content-box; /* the caret sits outside the character-count width */
-  font: 600 24px/1.2 "JetBrains Mono", monospace;
-  letter-spacing: 0;
-  color: var(--ink);
-  white-space: nowrap;
-  overflow: hidden;
-  width: 10ch; /* = number of characters typed */
-  border-right: .55ch solid var(--ink-2);
-  animation: fx-type 3.6s steps(10) infinite,
-             fx-caret .65s steps(1) infinite;
-}
-@keyframes fx-type {
-  0%, 8%    { width: 0; }
-  55%, 100% { width: 10ch; }
-}
-@keyframes fx-caret {
-  50% { border-color: transparent; }
-}
-
-
-
-
-
 
 
 
@@ -319,18 +260,58 @@ tailwind.config = {
   .marquee { --gap: 28px; }
   .marquee img { height: 38px; max-width: 100px; }
 }
+
+/* ---------- LOADER: copied 1:1 from the service pages' theme (main.css) ---------- */
+.main-wrap{position:relative;z-index:1;height:100%;width:100%}
+.main-wrap .pin-spacer{height:0!important}
+.pre-load{height:100vh;width:100vw;background:#000;position:fixed;top:0;left:0;z-index:0;will-change:transform}
+.pre-load .cls-1{clip-path:circle(0);transform:translateY(50px) translateZ(0)}
+.pre-load svg{max-height:700px;width:auto;height:100vw}
+.pre-load .load-svg{display:flex;overflow:visible;position:absolute;top:50%;left:50%;right:50%;margin:0 auto;height:auto;width:105vh;transform:translateX(-50%) translateY(-50%) rotate(-65deg);transform-origin:center;will-change:transform,clip-path;justify-content:center}
+@media (min-width:48em){.pre-load .load-svg{width:144vh;transform:translateX(-50%) translateY(-50%) rotate(-45deg)}}
+@media (min-width:64em){.pre-load .load-svg{width:110vw;transform:translateX(-50%) translateY(-50%) rotate(-6deg)}}
+#navbar{transition:opacity .6s ease}
+body.ready:not(.nav-in) #navbar,body.ready:not(.nav-in) #custom-cursor{opacity:0!important;visibility:hidden;pointer-events:none}
+.a-mask,.d-mask,.l-mask,.o-mask{clip-path:circle(0);transform:translateY(100px)}
+.ready{overflow:hidden;height:100vh}
+.ready .main-wrap{opacity:1;clip-path:circle(0);-webkit-clip-path:circle(0);height:100vh;animation:1.2s mask-out forwards;animation-timing-function:cubic-bezier(.22,1,.36,1);animation-delay:2.1s}
+.ready .l-mask{animation:2.2s l-mask forwards;animation-timing-function:cubic-bezier(.87,0,.13,1)}
+.ready .o-mask{animation:2.2s o-mask forwards;animation-timing-function:cubic-bezier(.87,0,.13,1);animation-delay:.15s}
+.ready .a-mask{animation:2.2s a-mask forwards;animation-timing-function:cubic-bezier(.87,0,.13,1);animation-delay:.2s}
+.ready .d-mask{animation:2.2s d-mask forwards;animation-timing-function:cubic-bezier(.87,0,.13,1);animation-delay:.3s}
+@keyframes l-mask{0%{clip-path:circle(0 at 0 0);transform:translateY(100px)}65%{clip-path:circle(145% at 0 0);transform:translateY(0)}90%{clip-path:circle(0 at 0 0);transform:translateY(-100px)}}
+@keyframes o-mask{0%{clip-path:circle(0 at 50% 100%);transform:translateY(100px)}65%{clip-path:circle(100% at 50% 100%);transform:translateY(0)}90%{clip-path:circle(0 at 50% 100%);transform:translateY(-100px)}}
+@keyframes a-mask{0%{clip-path:circle(0 at 0 0);transform:translateY(100px)}65%{clip-path:circle(145% at 0 0);transform:translateY(0)}90%{clip-path:circle(0 at 0 0);transform:translateY(-100px)}}
+@keyframes d-mask{0%{clip-path:circle(0 at 0 0);transform:translateY(100px)}65%{clip-path:circle(145% at 0 0);transform:translateY(0)}90%{clip-path:circle(0 at 100% 50%);transform:translateY(-100px)}}
+@keyframes mask-out{0%{will-change:clip-path;clip-path:circle(0);-webkit-clip-path:circle(0)}100%{will-change:clip-path;clip-path:circle(100%);-webkit-clip-path:circle(100%)}}
 </style>
+<link rel="stylesheet" href="assets/css/index.css">
 </head>
 
 <body class="bg-electric-blue text-white selection:bg-neon-lime selection:text-black font-sans antialiased overflow-x-hidden relative">
+<div class="pre-load">
+	<style media="screen">
+		.main-wrap {
+			opacity: 0;
+			/* clip-path: circle(0);
+			-webkit-clip-path: circle(0); */
+		}
+	</style>
+	<div class="load-svg flex">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 298.2 490"><defs><style>.cls-1{fill:#fff;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1 l-mask" d="M0,490,7,0H140V448h17.5c7-80.5,35.7-101.5,132.3-88.9L298.2,490Z"/></g></g></svg>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.6 516.6"><defs><style>.cls-1{fill:#fff;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1 o-mask" d="M516.6,258.3c0,142.8-115.5,258.3-258.3,258.3S0,401.1,0,258.3,115.5,0,258.3,0,516.6,115.5,516.6,258.3Zm-135.1,0c0-67.9-55.3-123.2-123.2-123.2S135.1,190.4,135.1,258.3s55.3,123.2,123.2,123.2S381.5,326.2,381.5,258.3Z"/></g></g></svg>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420.7 490"><defs><style>.cls-1{fill:#fff;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1 a-mask" d="M261.8,412.3H158.9L147,490H0L106.4,0H314.3L420.7,490h-147Zm-15.4-96.6c-7-28.7-23.1-153.3-23.1-195.3H198.8c0,42-17.5,166.6-24.5,195.3Z"/></g></g></svg>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 348.89 497.07"><defs><style>.cls-1{fill:#fff;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1 d-mask" d="M120.4.77c152.6-8.4,221.2,51.8,227.5,166.6,12.6,231.7-97.3,329-195.3,329L0,497.07l4.9-490Zm16.1,380.8c46.9,0,76.3-71.4,69.3-176.4-4.9-75.6-19.6-104.3-79.1-94.5Z"/></g></g></svg>
+	</div>
+</div>
 
-<div class="fixed top-0 left-0 w-8 h-8 rounded-full bg-neon-lime mix-blend-difference pointer-events-none z-50 hidden sm:flex items-center justify-center opacity-80 transition-opacity" id="custom-cursor" style="left: 628px; top: 635px; transform: translate(-50%, -50%) scale(1); background-color: rgb(226, 255, 59);">
+<div class="fixed top-0 left-0 w-8 h-8 rounded-full bg-neon-lime mix-blend-difference pointer-events-none z-50 hidden sm:flex items-center justify-center opacity-80 transition-opacity" id="custom-cursor" aria-hidden="true">
   <div class="w-2 h-2 rounded-full bg-black"></div>
 </div>
 
 <!-- BEGIN: Main Header -->
 <header class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-10 py-1.5 sm:py-2.5 flex items-center justify-between gap-2 bg-transparent border-b border-transparent" data-purpose="site-navigation" id="navbar">
-  <a aria-label="Likely Story Homepage" class="flex flex-col select-none group focus:outline-none shrink-0" href="#hero">
+  <a aria-label="Echore Studio Home" class="flex flex-col select-none group focus:outline-none shrink-0" href="#hero">
     <div class="brand-wordmark-angled text-white font-extrabold text-base sm:text-xl tracking-tighter drop-shadow-md group-hover:scale-110 group-hover:rotate-0 transition-transform duration-300">
       <div>ECHORE</div>
       <div class="tracking-normal text-neon-lime">STUDIO</div>
@@ -343,20 +324,20 @@ tailwind.config = {
   </button>
 
   <nav class="flex items-center space-x-2.5 sm:space-x-8 text-[10px] sm:text-sm font-bold tracking-wider uppercase shrink-0">
-    <a class="text-white hover:text-neon-lime transition-colors drop-shadow-md" href="#work">Work</a>
+    <a class="text-white hover:text-neon-lime transition-colors drop-shadow-md" href="#work">Services</a>
     <a class="text-white hover:text-neon-lime transition-colors drop-shadow-md" href="#ethos">Ethos</a>
     <a class="text-white hover:text-neon-lime transition-colors drop-shadow-md" href="#about">Studio</a>
-    <a class="px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-white text-black font-extrabold hover:bg-neon-lime hover:scale-105 transition-all text-[9px] sm:text-[11px] tracking-widest shadow-lg" href="#contact">Contact</a>
+    <a class="px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-white text-black font-extrabold hover:bg-neon-lime hover:scale-105 transition-all text-[9px] sm:text-[11px] tracking-widest shadow-lg" href="echore-contact.html">Contact</a>
   </nav>
 </header>
 
-<main>
+<main class="main-wrap">
 <!-- HERO SECTION -->
 <section class="relative w-full min-h-[100svh] hero-bg-image hero-top-scrim overflow-hidden select-none flex flex-col pt-12 sm:pt-16 pb-4 sm:pb-8" data-purpose="hero-banner" id="hero">
 
   <!-- HERO BACKGROUND VIDEO -->
   <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
-    <source src="herovid.mp4" type="video/mp4">
+    <source src="assets/herovid.mp4" type="video/mp4">
   </video>
 
   <div class="relative z-30 w-full max-w-[1920px] mx-auto px-4 sm:px-10 flex justify-end mb-3 sm:mb-0"></div>
@@ -490,15 +471,16 @@ tailwind.config = {
 
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10" data-reveal-group>
 
-      <article data-reveal class="md:col-span-7 group clay-card p-4 sm:p-6 cursor-pointer" data-purpose="portfolio-card">
+      <article data-reveal class="md:col-span-7 group clay-card relative p-4 sm:p-6 cursor-pointer" data-purpose="portfolio-card">
+        <a href="auto.html" class="absolute inset-0 z-20 rounded-[32px] focus:outline-none focus-visible:ring-4 focus-visible:ring-neon-lime" aria-label="Build Your Workflow — AI automation services"></a>
         <div class="relative w-full aspect-[16/11] rounded-2xl overflow-hidden bg-neutral-900 shadow-inner">
-          <img alt="Askonas Holt - Classical arts and ballet choreography" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" src="auto.png">
+          <img alt="Echore AI automation: workflows connecting WhatsApp, Instagram and Gmail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" src="assets/img/card-auto.webp" width="1400" height="781" decoding="async">
           <div class="absolute top-4 left-4 clay-badge bg-black/85 backdrop-blur-md px-4 py-1.5 text-xs font-mono font-bold text-white uppercase tracking-wider">Digital &amp; Brand System</div>
           <div class="absolute bottom-4 right-4 bg-neon-lime text-black font-extrabold text-xs px-3 py-1 rounded-full font-mono uppercase tracking-widest shadow-md">★</div>
         </div>
         <div class="pt-6 pb-2 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
-            <span class="text-xs font-mono uppercase tracking-widest text-electric-blue font-bold">Automation For Buisnesses</span>
+            <span class="text-xs font-mono uppercase tracking-widest text-electric-blue font-bold">Automation For Businesses</span>
             <h3 class="hero-font-heavy text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-black group-hover:text-electric-blue transition-colors">Build Your Workflow</h3>
           </div>
           <div class="flex items-center gap-3">
@@ -508,9 +490,10 @@ tailwind.config = {
         </div>
       </article>
 
-      <article data-reveal class="md:col-span-5 md:mt-12 group clay-card p-4 sm:p-6 cursor-pointer" data-purpose="portfolio-card">
+      <article data-reveal class="md:col-span-5 md:mt-12 group clay-card relative p-4 sm:p-6 cursor-pointer" data-purpose="portfolio-card">
+        <a href="crea.html" class="absolute inset-0 z-20 rounded-[32px] focus:outline-none focus-visible:ring-4 focus-visible:ring-neon-lime" aria-label="Build Your Presence — Creative services"></a>
         <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-900 shadow-inner">
-          <img alt="Novo Banking - Mobile fintech UI and brand identity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" src="creative.png">
+          <img alt="Echore creative services: brand identity and content" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" src="assets/img/card-creative.webp" width="1000" height="1491" decoding="async">
           <div class="absolute top-4 left-4 clay-badge bg-electric-blue text-white px-3.5 py-1 text-xs font-mono font-bold uppercase tracking-wider">Creative</div>
         </div>
         <div class="pt-6 pb-2 flex items-end justify-between">
@@ -522,10 +505,11 @@ tailwind.config = {
         </div>
       </article>
 
-      <article data-reveal class="md:col-span-5 group clay-card p-4 sm:p-6 cursor-pointer" data-purpose="portfolio-card">
+      <article data-reveal class="md:col-span-5 group clay-card relative p-4 sm:p-6 cursor-pointer" data-purpose="portfolio-card">
+        <a href="web.html" class="absolute inset-0 z-20 rounded-[32px] focus:outline-none focus-visible:ring-4 focus-visible:ring-neon-lime" aria-label="Shape Your Interface — Web and app development"></a>
         <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-900 shadow-inner">
-          <img alt="Bertch Capital - Modern industrial architecture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" src="web.png">
-          <div class="absolute top-4 left-4 clay-badge bg-black/85 backdrop-blur-md px-3.5 py-1 text-xs font-mono font-bold text-white uppercase tracking-wider">Websites & Apps</div>
+          <img alt="Echore websites and apps: UI design and development" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" src="assets/img/card-web.webp" width="1000" height="1491" decoding="async">
+          <div class="absolute top-4 left-4 clay-badge bg-black/85 backdrop-blur-md px-3.5 py-1 text-xs font-mono font-bold text-white uppercase tracking-wider">Websites &amp; Apps</div>
         </div>
         <div class="pt-6 pb-2 flex items-end justify-between">
           <div>
@@ -536,9 +520,10 @@ tailwind.config = {
         </div>
       </article>
 
-      <article data-reveal class="md:col-span-7 group clay-card p-4 sm:p-6 cursor-pointer" data-purpose="portfolio-card">
+      <article data-reveal class="md:col-span-7 group clay-card relative p-4 sm:p-6 cursor-pointer" data-purpose="portfolio-card">
+        <a href="echore-ecommerce.html" class="absolute inset-0 z-20 rounded-[32px] focus:outline-none focus-visible:ring-4 focus-visible:ring-neon-lime" aria-label="Scale Your Online Sales — E-commerce solutions"></a>
         <div class="relative w-full aspect-[16/11] rounded-2xl overflow-hidden bg-neutral-900 shadow-inner">
-          <img alt="Our Revolution - Beverage storytelling and vivid lifestyle photography" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" src="ecom.png">
+          <img alt="Echore e-commerce: online store design and management" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" src="assets/img/card-ecom.webp" width="1400" height="594" decoding="async">
           <div class="absolute top-4 left-4 clay-badge bg-bubble-pink text-black px-4 py-1 text-xs font-mono font-bold uppercase tracking-wider">E-commerce</div>
         </div>
         <div class="pt-6 pb-2 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
@@ -547,13 +532,13 @@ tailwind.config = {
             <h3 class="hero-font-heavy text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-black group-hover:text-electric-blue transition-colors">Scale Your Online Sales</h3>
           </div>
           <div class="flex items-center gap-3">
-            <span class="text-xs font-mono uppercase font-bold text-gray-500">Sydney / Global</span>
+            <span class="text-xs font-mono uppercase font-bold text-gray-500">Delhi / Global</span>
             <span class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center font-bold text-sm group-hover:bg-electric-blue group-hover:scale-110 transition-all shadow-md">↗</span>
           </div>
         </div>
       </article>
 
-      <article data-reveal="scale" class="md:col-span-12 group clay-card p-6 sm:p-10 bg-gradient-to-br from-neutral-900 to-black text-white cursor-pointer relative overflow-hidden" data-purpose="portfolio-featured-wide">
+      <article id="about" data-reveal="scale" class="md:col-span-12 group clay-card p-6 sm:p-10 bg-gradient-to-br from-neutral-900 to-black text-white cursor-pointer relative overflow-hidden" data-purpose="portfolio-featured-wide">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
           <div class="lg:col-span-5 flex flex-col justify-center">
             <div class="flex items-center gap-3 mb-4 flex-wrap">
@@ -600,10 +585,6 @@ tailwind.config = {
         </div>
       </article>
 
-      <article data-reveal class="md:col-span-6 group clay-card p-4 sm:p-6 cursor-pointer" data-purpose="portfolio-card">
-        <!-- Original card content was commented out in the supplied HTML. -->
-      </article>
-
     </div>
   </div>
 </section>
@@ -643,7 +624,7 @@ tailwind.config = {
       <div data-reveal="slide-right" class="lg:col-span-5 flex justify-center relative">
         <div class="w-full max-w-[460px] animate-float-sine relative">
           <div class="absolute inset-0 bg-electric-blue/40 rounded-full blur-3xl -z-10"></div>
-          <img alt="Playful 3D claymorphic designer character with colorful ribbon swirls" class="w-full h-auto drop-shadow-[0_30px_35px_rgba(0,0,0,0.7)] select-none rounded-3xl" src="pic2.png">
+          <img alt="Playful 3D claymorphic designer character with colorful ribbon swirls" class="w-full h-auto drop-shadow-[0_30px_35px_rgba(0,0,0,0.7)] select-none rounded-3xl" src="assets/img/pic2.webp" width="668" height="373" loading="lazy" decoding="async">
           <div class="absolute -bottom-4 right-2 clay-badge bg-neon-lime text-black px-4 py-2 font-mono text-xs font-extrabold uppercase rotate-[-4deg]">ALWAYS PLAYFUL ★</div>
         </div>
       </div>
@@ -671,12 +652,13 @@ tailwind.config = {
 
         <div class="mt-8 sm:mt-12 flex flex-col sm:flex-row sm:items-center gap-4 text-base sm:text-xl font-medium text-white items-center lg:items-start">
           <span class="font-sans font-semibold">Want to work together? Email us:</span>
-          <a aria-label="Send email to hello@echore.agency" class="hand-drawn-pill inline-block px-6 py-2.5 text-white font-mono font-bold tracking-tight text-base sm:text-xl focus:outline-none cursor-pointer text-center" href="mailto:hello@echore.agency">echore.studios@gmail.com</a>
+          <a aria-label="Send email to echore.agency@gmail.com" class="hand-drawn-pill inline-block px-6 py-2.5 text-white font-mono font-bold tracking-tight text-base sm:text-xl focus:outline-none cursor-pointer text-center" href="mailto:echore.agency@gmail.com">echore.agency@gmail.com</a>
         </div>
 
         <div class="mt-8 pt-6 border-t border-white/20 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 font-mono text-xs text-white/80 uppercase">
-          <span>📍 New Delhi</span>
-          <span>☎ +91 7011588835</span>
+          <span>📍 New Delhi, India</span>
+          <a href="tel:+917011588835" class="hover:text-neon-lime transition-colors">☎ +91 7011588835</a>
+          <a href="echore-contact.html" class="underline underline-offset-4 hover:text-neon-lime transition-colors">Send an enquiry ↗</a>
         </div>
       </div>
     </div>
@@ -687,13 +669,13 @@ tailwind.config = {
 <footer data-reveal="fade" class="bg-black text-white text-xs sm:text-sm py-10 sm:py-12 border-t-2 border-white/15" data-purpose="site-footer">
   <div class="max-w-[1440px] mx-auto px-6 sm:px-12 flex flex-col md:flex-row items-center justify-between gap-8">
     <div class="flex items-center space-x-6">
-      <a aria-label="Likely Story Brand" class="brand-wordmark-angled text-2xl uppercase tracking-tighter text-white hover:text-neon-lime transition-colors" href="#hero">
+      <a aria-label="Echore Studio Home" class="brand-wordmark-angled text-2xl uppercase tracking-tighter text-white hover:text-neon-lime transition-colors" href="#hero">
         <div>ECHORE</div>
         <div class="text-neon-lime">STUDIO</div>
       </a>
       <div class="text-neutral-400 text-xs pl-6 border-l border-white/20 hidden sm:block">
-        © Echore Agency Ltd. All Rights Reserved 2026. <br>
-        <a class="hover:text-neon-lime transition-colors underline" href="#">Privacy Policy &amp; Terms</a>
+        © Echore. All Rights Reserved 2026. <br>
+        <span>New Delhi, India · <a class="hover:text-neon-lime transition-colors underline" href="tel:+917011588835">+91 7011588835</a></span>
       </div>
     </div>
 
@@ -701,13 +683,13 @@ tailwind.config = {
       <div class="text-neutral-400 font-mono text-xs text-center sm:text-right">Crafted with care by Aamir</div>
 
       <div class="flex items-center space-x-4">
-        <a aria-label="Likely Story on Instagram" class="w-10 h-10 rounded-full bg-white/10 hover:bg-neon-lime hover:text-black flex items-center justify-center transition-all p-2 text-white" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
+        <a aria-label="Echore on Instagram" class="w-10 h-10 rounded-full bg-white/10 hover:bg-neon-lime hover:text-black flex items-center justify-center transition-all p-2 text-white" href="https://www.instagram.com/echore/" rel="noopener noreferrer" target="_blank">
           <svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
           </svg>
         </a>
 
-        <a aria-label="Likely Story on X" class="w-10 h-10 rounded-full bg-white/10 hover:bg-neon-lime hover:text-black flex items-center justify-center transition-all p-2 text-white" href="https://twitter.com" rel="noopener noreferrer" target="_blank">
+        <a aria-label="Echore on X" class="w-10 h-10 rounded-full bg-white/10 hover:bg-neon-lime hover:text-black flex items-center justify-center transition-all p-2 text-white" href="https://twitter.com/echore" rel="noopener noreferrer" target="_blank">
           <svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
           </svg>
@@ -717,6 +699,22 @@ tailwind.config = {
   </div>
 </footer>
 
+<script>
+// Loader controller - same logic as the service pages' theme script, with a faster hand-off
+(function(){
+  function start(){
+    var pre=document.querySelector('.pre-load'), wrap=document.querySelector('.main-wrap'), b=document.body;
+    if(!pre||!wrap) return;
+    window.scrollTo(0,0);
+    b.classList.add('ready');
+    var navTimer=setTimeout(function(){ b.classList.add('nav-in'); },2500); // navbar fades in while the page opens
+    function finish(){ clearTimeout(navTimer); b.classList.add('nav-in'); b.classList.remove('ready'); if(pre.parentNode) pre.parentNode.removeChild(pre); }
+    wrap.addEventListener('animationend',function(e){ if(e.target!==wrap) return; setTimeout(finish,150); });
+    setTimeout(finish,7000); // safety net
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start); else start();
+})();
+</script>
 <script>
 // Transparent → subtle scrolled navbar
 const navbar = document.getElementById('navbar');

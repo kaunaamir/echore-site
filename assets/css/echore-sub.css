@@ -1,0 +1,21 @@
+/* Shared styles for the Echore service pages: logo (same as index.html), footer, CTA */
+.echore-logo{display:inline-block;text-decoration:none}
+.echore-logo__mark{font-family:'Anton','Impact',sans-serif;font-weight:800;text-transform:uppercase;transform:rotate(-9deg);line-height:.82;letter-spacing:-.02em;font-size:22px;color:#fff;transition:transform .3s ease;transform-origin:left center;display:block}
+.echore-logo__mark span{display:block}
+.echore-logo__mark span+span{color:#E2FF3B;letter-spacing:normal}
+.echore-logo:hover .echore-logo__mark{transform:rotate(0) scale(1.08)}
+header .logo.echore-logo{display:inline-block;width:auto;height:auto;padding:6px 0}
+.echore-footer{background:#000;color:#fff;border-top:2px solid rgba(255,255,255,.15);margin-top:4rem;padding:2.5rem 0;font-size:.85rem}
+.echore-footer__row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem 2.5rem}
+.echore-footer__icons{display:flex;gap:1.25rem}
+.echore-footer a{color:#fff;text-decoration:none}
+.echore-footer__icons a,.echore-footer__meta a{border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px}
+.echore-footer a:hover{color:#E2FF3B;border-color:#E2FF3B}
+.echore-footer__meta{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;color:#aaa;align-items:center}
+.echore-next{display:block;padding:clamp(3rem,8vw,7rem) 0;text-align:center;color:#fff;text-decoration:none;border-top:1px solid rgba(255,255,255,.2);margin-top:3rem}
+.echore-next span{display:block;color:#999;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;margin-bottom:.8rem}
+.echore-next strong{font-family:'Anton','Impact',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(2.5rem,9vw,7rem);line-height:1;transition:color .25s}
+.echore-next:hover strong{color:#E2FF3B}
+.echore-cta{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:900;background:#E2FF3B;color:#000;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;padding:.85rem 1.3rem;border-radius:999px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .2s}
+.echore-cta:hover{transform:scale(1.07) rotate(-2deg)}
+@media (max-width:600px){.echore-logo__mark{font-size:18px}}
